@@ -1,0 +1,9 @@
+[submodule "CPE593/CPE593_2017F"]
+	path = CPE593/CPE593_2017F
+	url = https://github.com/StevensDeptECE/CPE593_2017F
+[submodule "EE553/EE553_2017S"]
+	path = EE553/EE553_2017S
+	url = https://github.com/StevensDeptECE/EE553_2017S
+[submodule "EE553/EE553_Networked_Board_Games"]
+	path = EE553/EE553_Networked_Board_Games
+	url = https://github.com/StevensDeptECE/EE553_Networked_Board_Games
