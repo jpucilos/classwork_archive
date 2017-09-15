@@ -1,0 +1,22 @@
+CPE593
+Tonight:
+Shuffling
+Linear Search
+Binary Search
+4th unheard algorithm
+
+Linear Search - average case O(n)
+	-Go straight through the array
+	
+Binary Search with and without recursion 
+	-Gotta know both
+	-Splits array in two
+	
+	
+	
+	
+Golden Mean Search
+
+
+Shuffling
+

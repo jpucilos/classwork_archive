@@ -1,0 +1,73 @@
+
+CPE 593 Session 3: sorting
+
+*Sorting is a higher complexity than shuffling. It's easier to disorder than to order (entropy)
+
+Sorting Algorithms for this class
+Bubble Sort (bad)
+Selection (bad)
+Insertion for n < 200, fastest sort
+Quicksort fastest in general, with deadly flaw
+Heapsort much faster than Quicksort in worst case, not in best case
+Mergesort for big memory
+
+
+You can use swap(x,y) on a test
+
+Interview question
+	Can you swap variables without a third variable?
+		you can
+		x[j] = x[j] + x[j+1]
+		x[j+1] = x[j] - x[j+1]
+		x[j] = x[j] - x[j+1]
+		Or
+		XOR and stuff
+	
+Insertion Sort - the first of the useful sorts
+	the fastest up to 200
+	
+Quicksort
+	pivots and divots
+	
+	public class Quicksort {
+		public static void quicksort (int[] x, int L, int R) {
+		if(L > R)
+			return;
+		//partition into two halves
+		
+		int i = L;
+		int j = R;
+		
+		while(i < j){
+			while(x[i] <= pivot)
+				i++;
+			while(x[j] > pivot)
+				j--;
+			swap(x[i], x[j]);
+		}
+		quicksort (x, L, i);
+		quicksort (x, i+1, R);
+		
+		}
+	}
+	
+	
+	
+Knuth Optimized  Quicksort - 30% faster alledgedly
+	mix in a little insertion sort
+	
+	
+Heapsort - half the speed of quicksort, but more reliable, same complexity
+	
+Heap - Kinda like binary tree, where parent is greater than both children
+		nlogn complexity
+		always runs the same
+		
+Mergesort
+	Honestly not that great
+	
+	
+
+Radix Sort (not required)
+	sorts faster than nlogn for certain conditions
+	devise a number of bins

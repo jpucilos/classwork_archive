@@ -1,0 +1,44 @@
+Mukund gives a synopsis of "The Imitation Game" starring Benedict Cumberpatch
+	Am I in a humanities class?
+DARPA, Turing, etc.
+
+Alan's Turing Machine
+	Tape was used for long term storage of info, besides print
+	Put symbols on tapes, feed it through scanner
+	Scanner determines symbol, sends it to be interpreted
+	Might be worth looking up what a turing machine actually is,
+		Mukund just said that pretty much all computering machines are Turing
+
+Turing possible father of computer architecture
+
+1945
+	Vacuum tubes, each stores a symbol
+	Best way to transfer data at the time
+
+1970
+	Bell Labs
+	someone call Ackland
+	John Bardeen or something
+		Transistors wooo
+		actually pretty crazy though
+		Second nobel prize for Transistor
+		greatly reduce size of computer
+	Shockley
+		seriously someone call Ackland
+		wafer level, microprocessors
+		apparently an asshole
+		Intel - missiles, ships, aircraft etc.
+	
+1980
+	Personal Computer - Bill Gates
+	
+1990
+	The part where we need to listen
+	Intel is the big guy on campus
+	Hardware -> Software (BIOS today) -> Operating system
+	C.I.S.C - Complex Instruction Set Computing
+		6000+ instructions 
+	R.I.S.C - Reduced Instruction Set Computing
+		150- instructions
+	Stored Program Model
+		Alright this is just Embedded Systems is it not?
