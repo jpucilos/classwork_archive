@@ -1,0 +1,106 @@
+
+_________Memory_________
+
+
+locality: something is nearby either in space or time
+	Temporal locality: nearby in time - after accessing once, we might need to access again soon
+	Spatial locality:  nearby in space - "next to each other on the shelf"
+	*learn to use locality to your advantage, build memory that's optimized for certain applications
+	
+With memory, cost and speed are inversely proportional
+
+SRAM - very small, very fast
+DRAM - not too small, moderately fast
+
+*Having a SSD with more capacity than your HDD doesn't make sense.
+*In a hierarchal memory set-up, data is transferred one level at a time.
+
+Types of Memory (for this class):
+	EEPROM [Electrically Erasable Programmable Read-Only Memory] 
+		- old technology, rather slow, cheap 
+	SRAM
+
+	DRAM
+
+	FLASH
+		- you want to wear out the whole device evenly, as opposed to letting a certain sector have all the wear
+		- NAND flash is SSD, flash drives. Higher storage density.
+		- NAND usually needs a controller to use
+		- NOR there's currently a maximum of 2 GB for NOR today.
+		- NOR flash has very fast read, writes are very slow.
+		- NOR flash is used mainly for program storage and boot code
+		
+	File systems
+		-Fat32, NTFS, Flash, etc.
+		-Did not go into this too much.
+		
+System - on - Chip (SoC)
+
+Magnetic disks are rarely used in embedded systems for multiple reasons
+	- High Power Consumption
+	- Affected by moisture, vibration, and other outside influences
+	- physically large
+	- Large amounts of storage, like TBs, not necessary for embedded systems
+	
+Caches are built on very fast memory technologies, not a device, built right into the processor	
+	-Stores values likely to be accessed soon
+	
+We need a way of mapping every location in out main memory to our cache, with much less space.
+
+
+Direct-Mapped Cache
+		each memory location is mapped to exactly one location in the cache
+		in order to do this, you need to figure out which location in the main memory a location in the cache corresponds to
+		
+		From the board:
+			(11101) = 29
+			8 blocks = 2^3
+			29 % 8 = 5
+			3 LSBs -> Block #
+			29 mod 8
+		-tags
+		-valid bit
+		
+	31
+	_____________________________________________
+	|		|	|	|	|	|	|Word offset (m bits)	|Byte Offset|	
+	--------------------------------------------
+	
+	*Fuck this I drew it on paper
+	*It looks fantastic
+	*Don't lose it
+	*You're probably going to lose it.
+	
+Set-associative cache
+	instead of just one possible location, there's now multiple possible locations
+	
+	increase degree of associativity (# of possible locations), decrease miss rate
+	BUT this takes a longer time
+	
+Fully-associative cache
+	a block of data from main memory can end up in any location in the cache
+	have to search all locations in cache
+	
+	normally this search would be done in parallel in the hardware
+	this is used with smaller caches
+	
+	
+Cache miss
+	searched cache, data not found
+	causes stall, fixed by writing and then restarting process
+	
+Cache Writes
+	write to cache, now main memory and cache are inconsistant
+	write-though is solution
+		every time we write to cache, also immediately written to main memory
+		
+	write-buffer
+		some other hardware writes to main memory so processor doesn't have to
+		
+	write-back
+		writes to main memory only occur when cache block is being overwritten
+		data is written from cache to main first, then cache is overwritten
+	
+
+		
+			

@@ -1,0 +1,96 @@
+CPE-555 Lecture0 - Syllabus
+
+***Textbook "Embedded Systems: A Contemporary Design Tool"
+
+***Homeworks are extremely important
+
+***Assignment: Set up FreeRTOS simulation environment (It's on canvas)
+
+***First real homework due in two weeks
+
+
+CPE-555 Lecture1 - Slides on canvas
+
+Embedded systems are an intersection of hardware and software
+	That's what makes this interesting
+	Relatively Broad subject
+	
+History
+	TBT to the 4004
+
+General Purpose Computer/Laptop
+	Needs to be able to do a large assortment of tasks, completed by software
+	Hardware needs to match the demands of the software
+	10 to 100 of watts thermal design power
+	Rely on user to keep system updated, and working functionally
+	
+	
+Embedded systems
+	Designed for one target application or class of applications
+	Hardware resources limited to needs of embedded systems
+	Contstraints and tradeoffs - SWaP - size, weight, and power
+	Typically need to interact with the outside world through analog and digital devices
+	microwatts to a few watts TDP on average
+	Must be made reliable with little need for maintenance
+	Usually no expansion slots, such as those seen on a personal laptop 
+	Definitely not upgradable, sometimes difficult to repair
+	Unlike hardware, Software is often added after product release
+	Many must be extremely reliable, i. e. pacemaker
+	Many must be rugged, able to survive almost anywhere like space
+	Hard to test or debug because these systems often lack a GUI
+	
+	
+Processors - we will go over this more during next week's lecture
+	
+FPGA v. ASIC
+	ASIC manufactured for a single purpose, not reprogrammable
+	FPGA is reprogrammable
+	Both are able to perform complex tasks that would be expensive to do in software (encryption, checksum, signal processing)
+
+System-on-a-Chip Devices (SoCs)
+	developed in reponse to demand of smaller, lower cost, lower power, and higher density systems
+	combine memory, communication interfaces, etc.
+	
+Memory leaks
+	software bugs the cause the system to gradually run out of memory (often seen with browser on general purpose machines)
+
+Single Event Upsets (SEUs)
+	Random bit flips
+	caused by things like radiation
+	
+Safety Critical Systems
+	failure of these systems can cause death, damage, etc. 
+	these systems must be very reliable
+	
+Security
+	embedded devices usually aren't updated as frequency as devices like general purpose computers
+	an active area of research for embedded systems
+	only assholes would consider hacking into a pacemaker, but the possibility still exists
+	
+Real - Time Systems
+	Time is pretty important in the world of embedded systems
+		There's a need to do things quickly, like sound an alarm
+	These real time systems respond to external events 
+		the response must be met by a deadline
+	Real-Time doesn't mean fast
+		but rather, predictably
+	System has a predictable latency (the amount of time it takes to respond)
+	Must be designed for worst case scenario, when system is under the most stress
+		latency can depend on load, but behavior is predictable
+	Non-embedded systems can be real-time
+
+Hard v. Soft real-time	
+	hard: deadline misses can't be tolerated (airbag in a car)
+	soft: deadline misses result in performance degradation (audio encoding/ decoding, video communications)
+	
+Internet of Things/ Machine to Machine
+	scary stuff
+	
+Industrial/Home Automation
+	also scary stuff
+	how can I continue living knowing that I'm ruining the job market?
+
+Other examples of embedded systems	
+	wrapping up the lecture
+	
+	

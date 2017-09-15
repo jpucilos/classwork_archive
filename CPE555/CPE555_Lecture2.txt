@@ -1,0 +1,132 @@
+CPE 555 Lecture 2 September 7th 2017
+
+Microcontroller
+	slow speeds, but still useful today because of low power consumption
+	no memory management unit
+	internal storage (flash, RAM, ROM)
+	
+Microprocessor
+	more like what we have in our desktops and such
+	more power consumption
+	storage external (HDD, SSD)
+	
+*Most embedded applications are single core, but we are beginning to see multi-core uses
+
+Specialized embedded processors
+	Digital Signal Processor
+	GPUs
+		specialized for processing video
+		split one frame of a video into chunks that the graphics processing unit can use
+		parallel execution of processing
+	
+Harvard Architecture
+	CPU < -- > Instruction Memory
+	CPU < -- > Data Memory
+	COU < -- > I/O
+	*This allows for fetching of instructions and for reading and writing to memory at the same time.
+	*Compilers imbed code into memory, so this layout isn't great for compilation
+	
+Von Neumann architecture
+	CPU < -- > Instruction Memory and Data Memory
+	*Memory is one of the largest bottlenecks we currently have in regards to processors
+	
+*Caches are very fast, intermediate memory regions
+
+Most modern CPU's use a modified Harvard Architecture
+	data buses of von neumann, caches of Harvard
+	
+Processor instructions
+	RISC and CISC
+	*we will use ARMv7-M Instruction Set Architecture (ISA)
+	CISC is what you did in MicroProc, RISC is what you're going to do here
+	CISC works directly with memory, and instructions execute in more than one clock cycle
+		Increase performance by reducing number of instructions
+	RISC
+		Instructions take fewer clock cycles, but you need more of them
+		Increase performance by increasing the rate at which instructions can be executed
+		
+		
+CPU Registers
+	several digital logic blocks, that can each store one bit of information. In a string, they form a register
+	fast, close to processor, ease of access
+	used for temporary storage for whatever value processsor is using at the time
+		don't have to access memory on each instructions
+		big plus
+	Compilers handle assigning registers to values
+	
+*Most embedded software is in C/C++ at the moment	
+*ARM architecture is becoming increasingly popular
+*Link register, holds address when returning from a function
+*You know Stack pointer and program counter
+*Very rarely will I ever need to use assembly code
+*BUT it's very useful to be able to read assembly code for debugging
+*We will need to read and write a little bit for this class
+*We usually don't develop a system on the same architecture as the system we're developing
+*ARM uses byte addressing
+*Assembler needed to convert assembly code to machine code (1's and 0's)
+
+***ARM (RISC) Instructions Slides***
+***Basically a review of microprocessor systems, but like super quick and now it's ARM
+	LDR R8, [R10]
+	- In this example, R10 holds the address that we are trying to transfer data from
+	LDR R8 , [R10, #64]
+	- 64 bytes offset
+	LDR R8 , [R10,R11]
+	- Also an offset
+
+--------------BREAK---------------
+
+
+Single-cycle CPUs - Not a great idea
+	shorter instructions take the same amount of time as the longest one,
+	determined by longest data path delay
+
+Multi-Cycle CPUs improve performance through PIPELINING
+
+Pipelining
+	use this overlap several instructions at the same time 
+	analogy: washing laundry
+		*see slide 31
+	
+What happens if instruction is trying to use a result we haven't computed yet?
+	-HAZARDS!
+	-Structural, Data, Control HAZARDS
+
+DATA HAZARD
+	ADD R0, R2, R3	IF	ID	EX	MEM	WB
+	SUb R4, R1, R5		IF	ID	EX	MEM	WB
+	
+	*solve this with forwarding
+	__________________________________________
+	
+	ADD R0, R2, R3	IF	ID	EX	MEM	WB
+							 \
+							  \
+							   \
+							    \
+	SUb R4, R1, R5		IF	ID	EX	MEM	WB	
+	__________________________________________
+	
+	*Forwarding works well, but sometimes stalling is necessary
+	*happens with load instructions often
+	
+	
+Control HAZARDS
+	when a decision needs to be made based on the results of an instruction that hasn't happened yet
+	"branch hazard"
+	Solutions:
+		stall has long as necessary
+		predict the result
+			prediction is a complicated subject
+			assume that branches are never taken
+			
+			
+			
+Summary:
+Moore's Law
+Microcontrollers, microprocessors, DSPS, and GPUs
+Harvard and von Neumann
+RISC v CISC
+ARM ISA
+C code
+Clock Cycles
