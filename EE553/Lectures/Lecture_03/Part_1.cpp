@@ -1,7 +1,6 @@
 #include<iostream>
 #include<cmath>
 using namespace std;
-// Fuck it, just look at his notes tonight
 
 /*
 class object
@@ -14,10 +13,10 @@ encapsulation: hiding the details of an object internally (private)
 */
 
 //goal: represent fraction like 1/2, 2/3, 5/2, what about 5/0?
-//privscy in code means different than regular privacy
+//privacy in code means different than regular privacy
 
 class Fraction{
-private: // data should ALWAYS be private, don't want to creat more work for yourself
+private: // data should ALWAYS be private
 	int num, den;
 
 public:
@@ -29,11 +28,7 @@ public:
 };
 print(ostream& s, Fraction f){
 	
-	
 }	
-
-
-
 
 int main(){
 	Fraction a(1,2); // 1/2

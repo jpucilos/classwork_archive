@@ -6,7 +6,7 @@ CPE-555 Lecture0 - Syllabus
 
 ***Assignment: Set up FreeRTOS simulation environment (It's on canvas)
 
-***First real homework due in two weeks
+***First homework due in two weeks
 
 
 CPE-555 Lecture1 - Slides on canvas
@@ -65,7 +65,7 @@ Safety Critical Systems
 Security
 	embedded devices usually aren't updated as frequency as devices like general purpose computers
 	an active area of research for embedded systems
-	only assholes would consider hacking into a pacemaker, but the possibility still exists
+	only bad people would consider hacking into a pacemaker, but the possibility still exists
 	
 Real - Time Systems
 	Time is pretty important in the world of embedded systems
@@ -88,7 +88,6 @@ Internet of Things/ Machine to Machine
 	
 Industrial/Home Automation
 	also scary stuff
-	how can I continue living knowing that I'm ruining the job market?
 
 Other examples of embedded systems	
 	wrapping up the lecture

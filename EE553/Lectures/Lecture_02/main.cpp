@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cmath>
-#include <random> //new ting, very good. rand and srand is old junk apparently
+#include <random> // rand and srand is old junk
 using namespace std;
 
 
@@ -22,7 +22,7 @@ double hypot(double x, double y){
     return sqrt(x*x + y*y);
 }
 
-//Subtractive cancellation example, and type promotion and stuff
+//Subtractive cancellation example, and type promotion
 //int root3, root4
 //cannot write double to an int!
 double quadratic(double A, double B, double C, double& root1, double& root2){
@@ -59,8 +59,8 @@ int main(){
         a = b;
         b = c;
     }
-    // Dov goes over nested loops
-    // "noaa wind chill chart"
+    //nested loops
+    //"noaa wind chill chart"
 
     int x[3]; // x[0], x[1], x[2]; // unitialized!
 
@@ -81,14 +81,9 @@ int main(){
         {5,4,3},
         {2,1,6}
     };
-
     //sizeof
     cout << sizeof(int) << '\n';
     cout << sizeof(char) << '\n'; //always 1 by definition
     cout << sizeof(f) << '\n'; // 24 bytes
     cout << sizeof(f[0]) << '\n'; // 12 bytes
-
-
-
-
 }
