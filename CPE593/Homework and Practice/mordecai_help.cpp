@@ -34,7 +34,6 @@ int q2_positive_divisors(unsigned long int a){
 unsigned long int q3_string_hash(const char *str){
 	unsigned long int hashSum = 0;
 	for (int i = 0; *(str + i) != '\0' && *(str + i) != 1; i++){
-		cout << (int)(*(str + i)) <<'\n';
 		hashSum += (int)(*(str + i));
 	}
 	return hashSum;
@@ -56,12 +55,19 @@ unsigned long q4_diameter(unsigned int n, const double *x, const double *y){
 unsigned int q5_rotate(unsigned int n, unsigned int r, char d){
 	int temp[r] = {0};
 	int t;
+	int result = n;
 	if (d == 'r'){
-		for (int i = 0; i > r; i++)
-			temp[i] = n % pow(10, i);
-		n /= pow(10, r);
+		for (int i = 0; i < r; i++){
+			temp[i] = result % (int)pow(10, i);
+		}
+		result /= pow(10, r);
+		while(result / pow(10, t) != 0)
+			t++;
+		for (int i = 1; i <= r; i++){
+			result += temp[i-1] * pow(10, t+i-1);
+		}
 	}
-	
+	return result;
 }
 
 int main(){
