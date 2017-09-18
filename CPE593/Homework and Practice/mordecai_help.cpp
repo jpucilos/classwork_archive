@@ -55,8 +55,11 @@ unsigned long q4_diameter(unsigned int n, const double *x, const double *y){
 
 unsigned int q5_rotate(unsigned int n, unsigned int r, char d){
 	int temp[r] = {0};
+	int t;
 	if (d == 'r'){
-		
+		for (int i = 0; i > r; i++)
+			temp[i] = n % pow(10, i);
+		n /= pow(10, r);
 	}
 	
 }
