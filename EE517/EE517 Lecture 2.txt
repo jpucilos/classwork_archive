@@ -1,0 +1,100 @@
+EE 517 Lecture 2
+
+MTTF = Mean Time to Failure (system, component)
+Failure Rate = 1/ MTTF
+
+MTTF Calculation Example____________
+
+	Take a Server:
+	1. 10 Disks, MTTF = 10^6 hours
+	2. Controller, MTTF = 500,000 hours
+	3. Power Supply, MTTF = 200,000 hours
+	4. Fan, MTTF = 200,000 hours
+	5. SCSI Bus, MTTF = 10^6 hours
+
+	Failure Rate = 10 * (1/10^6) + 1/500,000 + 1/200,000 + 1/200,000 + 1/10^6 = 23/10^6
+	MTTF = 1/Failure Rate = 10^6/ 23 = 43,478 hours
+
+*If you were building a system with these components, you need to account for this MTTF
+____________________________________
+
+
+Speed-up (between two machines):
+	
+	= Execution Time in Machine y / Execution time in Machine x
+	
+Benchmarks: 
+	"The gold standard for measuring machine performance"
+	Kernel programs
+	Games
+	Synthetic code
+		good load of instructions that slow performance, but serve no purpose besides resulting in a score
+		
+Amdahl's Law:
+	
+	speedup(enhancement) = 1/ ((1 - Frac (enhanced)) + (Frac(enhanced)/ speedup (enhanced)))
+	
+Amdahl's Law Example________________
+	Let's say you have a webserver:
+	It enhances web processing (10x faster)
+	where the machine is 40% Web processing and 60% other stuff
+	
+	Speedup(enhancement) = 1/ ((1-0.4) + 0.4/10) = 1.56
+	
+	*So not exactly the same as 10x faster overall	
+____________________________________
+
+Instructions:
+	Example : ADD opr1, opr2
+	composed of opcode and operand
+	opcode is what we're doing, and operand is what we need to do this instructions
+	every instruction needs operands
+	Number of operands depends on opcode
+	Basic Format for instructions has not changed significantly in history
+	Cycle:
+		Fetch/Decode -> Execute -> Writeback ->repeat
+		
+		
+1960's:
+	small amount of Opcodes (Load, store, compare, add, div, branch)
+CISC:
+	1000's of Opcodes, due to push from companies like Intel and led to creation of microprocessors
+	
+RISC_______________________________
+	*Reduced Instruction Set Computing(Allegedly around 5 times faster than CISC):
+	
+	Burger Analogy to understand with RISC did:
+		Problem:
+			You basically run McDonald's as only one guy
+			It takes you an hours to go get the ingredients, cook the burger, and deliver the burger
+			
+		Solutions to increase burger output:
+			Reduce "menu" (Opcodes)
+			Stock up on "Ingredients" (memory)
+			Hire more people (pipe-lining)
+		
+	MIPS
+		Million Instructions per second, RISC
+		We have a sheet in front of us currently with a small amount of Opcodes on it
+		Enhances local availability
+		
+	What did RISC change?
+		opcode limited
+		operands in refister
+		all instructions were same length
+		IM/DM - (pipelining?)
+
+	*****	
+		CISC - one instruction to move data from hard drive to processor
+		RISC - it takes six instructions to do the same thing
+	*****
+
+	IF: Instruction Fetch
+	ID: Instruction Decode
+	EX: Execute
+	MEM: Memory Access (expensive, not always needed)
+	WB: Write back
+	
+___________________________________
+
+
