@@ -1,6 +1,6 @@
 #include<iostream>
 #include<cmath>
-#include<String>
+#include<string>
 using namespace std;
 
 
@@ -33,8 +33,9 @@ int q2_positive_divisors(unsigned long int a){
 //Question 3
 unsigned long int q3_string_hash(const char *str){
 	unsigned long int hashSum = 0;
-	for (int i = 0; *(str + i) != NULL; i++){
-		hashSum += (int)(*(str + i))
+	for (int i = 0; *(str + i) != '\0' && *(str + i) != 1; i++){
+		cout << (int)(*(str + i)) <<'\n';
+		hashSum += (int)(*(str + i));
 	}
 	return hashSum;
 }
@@ -44,7 +45,7 @@ unsigned long q4_diameter(unsigned int n, const double *x, const double *y){
 	unsigned long largestDistance = 0;
 	for (int i = 0; i > n; i++){
 		for(int j = 0; j > n; j++){
-			unsigned long distance = sqrt(pow(*(x+i) - *(y+i)) + pow(*(x+j) - *(y+j)));
+			unsigned long distance = sqrt(pow(*(x+i) - *(y+i), 2) + pow(*(x+j) - *(y+j), 2));
 			if (distance > largestDistance)
 				largestDistance =  distance;
 		}
@@ -52,6 +53,13 @@ unsigned long q4_diameter(unsigned int n, const double *x, const double *y){
 	return largestDistance;
 }
 
+unsigned int q5_rotate(unsigned int n, unsigned int r, char d){
+	int temp[r] = {0};
+	if (d == 'r'){
+		
+	}
+	
+}
 
 int main(){
 	cout << q2_positive_divisors(21)<<'\n';
@@ -64,5 +72,8 @@ int main(){
 	int* b = &b1;
 	swap(a, b);
 	cout << *a << "   " << *b <<'\n';
+	char test[4] = {'T','E','S','T'};
+	cout << q3_string_hash(test);
+	
 	
 }
