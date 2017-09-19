@@ -95,17 +95,16 @@ void FisherYates(int arr[], int n){
 		pick = rand() % i;
 		swap(arr[i], arr[pick]);
 	}
-	
 }
 
 void binarySearch(int arr[], int n, int x){
 	int L = 0;
 	int R = n - 1;
-	int pick = (L+R)/2;
 	if( arr[L] > x || arr[R] < x){
 		cout<<"Target not Found"<<'\n';
 		return;
 	}
+	int pick = (L+R)/2;
 	while(1){
 		if(arr[pick] == x){
 			cout<<"Target Found"<<'\n';
