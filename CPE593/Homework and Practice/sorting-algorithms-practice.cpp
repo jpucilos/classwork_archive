@@ -105,7 +105,7 @@ void binarySearch(int arr[], int n, int x){
 		return;
 	}
 	int pick = (L+R)/2;
-	while(1){
+	while(abs(L - R) >= 2){
 		if(arr[pick] == x){
 			cout<<"Target Found"<<'\n';
 			return;
@@ -118,11 +118,8 @@ void binarySearch(int arr[], int n, int x){
 			L = pick;
 			pick = (L+R)/2;
 		}
-		if (abs(L - R) <2 && arr[pick] != x){
-			cout <<"Target not found"<<'\n';
-			return;
-		}
 	}
+	cout << "Target Not Found" <<'\n';
 }
 
 void linearSearch (int arr[], int n, int x){
