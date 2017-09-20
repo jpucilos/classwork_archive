@@ -54,35 +54,60 @@ unsigned long q4_diameter(unsigned int n, const double *x, const double *y){
 
 unsigned int q5_rotate(unsigned int n, unsigned int r, char d){
 	int temp[r] = {0};
-	int t;
+	int t = 0;
 	int result = n;
 	if (d == 'r'){
 		for (int i = 0; i < r; i++){
-			temp[i] = result % (int)pow(10, i);
+			temp[i] = result % 10;
+			result /= 10;
 		}
-		result /= pow(10, r);
-		while(result / pow(10, t) != 0)
+		while(result / (int)pow(10, t) != 0)
 			t++;
 		for (int i = 1; i <= r; i++){
 			result += temp[i-1] * pow(10, t+i-1);
 		}
 	}
+	if (d == 'l'){
+		while(result / (int)pow(10, t) != 0)
+			t++;
+		for(int i = 0; i < r; i++){
+			temp[i] = result / pow(10,t-1);
+			cout << temp[i] << '\n';
+			result -= temp[1] * pow(10, t-1);
+			result = result * 10 + temp[i];
+		}
+	}
 	return result;
 }
 
+//int q6_circular_prime(unsigned int a){
+//	int temp, t;
+//	int test = a
+//	while(a / (int)pow(10, t) != 0)
+//		t++;
+//	for(int i = 0; i > r; i++){
+//		temp[i] = result / pow(10,t-1);
+//		result -= temp[1] * pow(10, t-1);
+//		result = result * 10 + temp[i];
+//	}
+//	
+//	
+//}
+
 int main(){
-	cout << q2_positive_divisors(21)<<'\n';
-	cout << q2_positive_divisors(4)<<'\n';
-	cout << q2_positive_divisors(103456)<<'\n';
-	cout << q2_positive_divisors(234889)<<'\n';
-	int a1 = 100;
-	int* a = &a1;
-	int b1 = 50;
-	int* b = &b1;
-	swap(a, b);
-	cout << *a << "   " << *b <<'\n';
-	char test[4] = {'T','E','S','T'};
-	cout << q3_string_hash(test);
-	
+//	cout << q2_positive_divisors(21)<<'\n';
+//	cout << q2_positive_divisors(4)<<'\n';
+//	cout << q2_positive_divisors(103456)<<'\n';
+//	cout << q2_positive_divisors(234889)<<'\n';
+//	int a1 = 100;
+//	int* a = &a1;
+//	int b1 = 50;
+//	int* b = &b1;
+//	swap(a, b);
+//	cout << *a << "   " << *b <<'\n';
+//	char test[4] = {'T','E','S','T'};
+//	cout << q3_string_hash(test);
+	cout << q5_rotate(24579, 2, 'r')<<'\n';
+	cout << q5_rotate(79245, 2, 'l')<<'\n';
 	
 }
