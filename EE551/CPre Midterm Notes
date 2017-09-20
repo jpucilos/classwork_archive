@@ -1,0 +1,38 @@
+
+Midterm-
+Read part 2 - part 6. (that's a lot of pages)
+Skip a lot of it though.
+
+
+After Midterm-
+Project- The meat
+Due first week of December
+
+*Mukund says Actors again, god bless his soul
+
+why do we use 'self' so much?
+first argument of our constructor and stuff
+
+Freaky things. lambda function.
+subroutines created by very simple functions are expensive. 
+
+Macrofunction- expand in line, not truly functions
+
+lambda function - simple one line function, macrofunction of Python? Expands in line
+
+Mukund goes through one of the most complex Python questions he can give us:
+
+
+def titleMe():
+	title = "The Great"
+	action = (lambda x: title + ' ' + x)
+	return action
+
+act = titleMe()
+msg = act('Robin Hood')
+print msg
+
+#this prints 
+
+
+

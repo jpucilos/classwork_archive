@@ -1,0 +1,76 @@
+Research Papers:
+
+1.ACM SIG
+2.IEEE
+3.Most other papers are trash, alledgedly
+
+What is the internet?
+
+
+
+Why did we internet?
+"So we can win the war"
+
+How did it start? 
+Two servers connected to eachother.
+LAN is beginning of internet.
+
+Internet is like the Mafia
+
+Verizon/Comcast -> Cogentco/Opton-> Level 3
+
+You pay Verizon $60 -> Verizon pays Cogentco $50 -> Cogentco pays Level 3 $40 
+
+Level 3 has the lines that run across the ocean
+
+*Toll road analogy*
+
+Hudson Street is the Router, Cogentco co brings you to other states, Level 3 brings you across oceans.
+
+
+
+"traceroute" to check where our packet is going
+
+Example:
+	traceroute to www.prodisney.ru (141.8.195.47), 30 hops max, 60 byte packets
+	 1  155.246.209.2 (155.246.209.2)  1.713 ms  1.840 ms  2.473 ms    -----------Everything will go through here
+	 2  gwa.cc.stevens.edu (155.246.151.37)  4.213 ms  4.799 ms  4.805 ms
+	 3  454a0465.cst.lightpath.net (69.74.4.101)  7.347 ms  7.453 ms  8.145 ms
+	 4  18267506.cst.lightpath.net (24.38.117.6)  8.724 ms  9.180 ms  9.186 ms
+	 5  hunt183-150.optonline.net (167.206.183.150)  10.495 ms  10.735 ms  11.028 ms
+	 6  451be0bd.cst.lightpath.net (65.19.113.189)  12.097 ms  6.527 ms  7.034 ms
+	 7  * * *
+	 8  be2324.ccr41.jfk02.atlas.cogentco.com (154.54.47.17)  5.260 ms  5.775 ms  6.968 ms
+	 9  be2490.ccr42.lon13.atlas.cogentco.com (154.54.42.86)  80.182 ms  77.825 ms be2317.ccr41.lon13.atlas.cogentco.com (154.54.30.186)  75.670 ms
+	10  be12488.ccr42.ams03.atlas.cogentco.com (130.117.51.42)  81.851 ms  82.408 ms be12194.ccr41.ams03.atlas.cogentco.com (154.54.56.94)  81.826 ms
+	11  be2813.ccr41.fra03.atlas.cogentco.com (130.117.0.122)  89.894 ms be2814.ccr42.fra03.atlas.cogentco.com (130.117.0.142)  87.641 ms be2813.ccr41.fra03.atlas.cogentco.com (130.117.0.122)  86.779 ms
+	12  be2846.rcr22.fra06.atlas.cogentco.com (154.54.37.30)  86.168 ms be2845.rcr22.fra06.atlas.cogentco.com (154.54.56.190)  89.373 ms  86.775 ms
+	13  rostelecom.demarc.cogentco.com (149.11.20.238)  88.797 ms  88.212 ms rostelecom.demarc.cogentco.com (149.11.20.138)  97.414 ms
+	14  95.167.95.112 (95.167.95.112)  140.537 ms  142.586 ms 213.59.211.131 (213.59.211.131)  140.121 ms
+	15  gw-rostelecom.as35000.ptspb.net (85.235.192.173)  138.569 ms  138.982 ms  140.683 ms
+	16  * * *
+	17  * * *
+	18  * * *
+	19  * * *
+	20  *^C
+
+* <--- Routers that don't respond to traceroute
+We can see level one and level two.
+
+With more popular and universal websites, you might not even get to the tier 1 "mafia boss" ISPs.
+
+We do tings, we get data
+
+
+
+Next assignment
+Traceroute place 80,000 times
+pretty much same ting as last time, make a cdf
+
+
+STEPS 
+
+1.Traceroute 80,000 times (shell script needed) ***Holy fuck you can do this
+	a. Make shell script, traceroute in for loop
+	b. end up with file with immense amount of data in it
+2. Extract Delay values, at the very end of the trace

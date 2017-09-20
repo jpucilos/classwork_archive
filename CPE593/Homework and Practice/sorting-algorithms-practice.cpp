@@ -28,8 +28,6 @@ int* insertionSort (int a[], int n){
 	return a;
 }
 
-
-
 void makeHeap(int a[],int n, int i){
 	int largest = i;
 	int l = 2*i + 1;
@@ -149,7 +147,6 @@ int main(){
 	printSort(insertionSort(a, 6), 6);
 	
 	printSort(heapSort(b, 6), 6);
-
 	
 	quickSort(d, 0, 5);
 	for (int i = 0; i < 6; i++)
