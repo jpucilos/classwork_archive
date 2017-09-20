@@ -1,0 +1,17 @@
+Lecture 3:
+Test
+
+After test:
+
+Euclid GCD formula
+
+Prime numbers optimization
+	-Brute Force
+	-Eratosthenes
+	-modifiedEratosthenes
+
+Big arithmetic
+
+	
+	
+	
