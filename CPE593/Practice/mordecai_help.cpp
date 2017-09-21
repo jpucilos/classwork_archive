@@ -41,6 +41,8 @@ unsigned long int q3_string_hash(const char *str){
 
 //Question 4
 unsigned long q4_diameter(unsigned int n, const double *x, const double *y){
+	if (n == 0)
+		return 0;
 	unsigned long largestDistance = 0;
 	for (int i = 0; i > n; i++){
 		for(int j = 0; j > n; j++){
@@ -72,27 +74,32 @@ unsigned int q5_rotate(unsigned int n, unsigned int r, char d){
 			t++;
 		for(int i = 0; i < r; i++){
 			temp[i] = result / pow(10,t-1);
-			cout << temp[i] << '\n';
-			result -= temp[1] * pow(10, t-1);
+			//cout << temp[i] << '\n';
+			if(temp[i] == 0)
+				t--;
+			result -= temp[i] * pow(10, t-1);
+			//cout << result <<'\n';
 			result = result * 10 + temp[i];
 		}
 	}
 	return result;
 }
 
-//int q6_circular_prime(unsigned int a){
-//	int temp, t;
-//	int test = a
-//	while(a / (int)pow(10, t) != 0)
-//		t++;
-//	for(int i = 0; i > r; i++){
-//		temp[i] = result / pow(10,t-1);
-//		result -= temp[1] * pow(10, t-1);
-//		result = result * 10 + temp[i];
-//	}
-//	
-//	
-//}
+int q6_circular_prime(unsigned int a){
+	int temp, t = a;
+	unsigned int test = a;
+	while(a / (int)pow(10, t) != 0)
+		t++;
+	for(int i = 0; i <= t; i++){
+		test = q5_rotate(test, 1, 'l');
+		for(int i = 0; i <= sqrt(test); i++){
+			if(test % i == 0)
+				return 0;
+		}
+	}
+	return 1;
+	
+}
 
 int main(){
 //	cout << q2_positive_divisors(21)<<'\n';
@@ -108,6 +115,6 @@ int main(){
 //	char test[4] = {'T','E','S','T'};
 //	cout << q3_string_hash(test);
 	cout << q5_rotate(24579, 2, 'r')<<'\n';
-	cout << q5_rotate(79245, 2, 'l')<<'\n';
+	cout << q6_circular_prime(197);
 	
 }

@@ -2,7 +2,6 @@
 	Author: Joseph Puciloski
 	cite: 
 */
-
 #include <stdlib.h>  
 #include <iostream>
 #include <fstream>
@@ -35,30 +34,22 @@ void quickSort(int arr[], int L, int R) {
 
 
 int main(){
-	ifstream f("hw2a.dat");
+
+	ifstream f ("hw2a.dat");
 	int num;
 	f >> num;
-	cout << num;
-	int a[num];
+
 	for (int i = 0; i < num; i++){
 		int n;
 		f >> n;
-		
-		string str;
-		f >> str;
-		istringstream buffer(str);
-		istream_iterator<string> beg(buffer), end;
-		vector<string> tokens(beg,end);
-		
 		int a[n];
-		
-		for (int i=0; i<= n; i++){
-			a[i] = atoi(tokens.at(i).c_str());
+		for (int i = 0; i < n; i++){
+			f >> a[i];
 		}
-		
 		quickSort(a,0,n-1);
 		for (int i = 0; i < n; i++)
 			cout << a[i] << " ";
 		cout <<'\n';
 	}
+	f.close();
 }
