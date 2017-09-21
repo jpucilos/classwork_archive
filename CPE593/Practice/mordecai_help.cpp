@@ -8,8 +8,9 @@ using namespace std;
 //Question 1
 void q1_swap(int *a, int *b){
 	int temp = *a;
-	b = a;
-	a = &temp;
+	a = b;
+	b = &temp;
+	cout << *a << *b <<'\n';
 }
 
 //Question 2
@@ -72,37 +73,37 @@ unsigned int q5_rotate(unsigned int n, unsigned int r, char d){
 }
 
 int q6_circular_prime(unsigned int a){
-	int t = 0;
-	unsigned int test = a;
+	int t, temp = 0;
 	while(a / (int)pow(10, t) != 0)
 		t++;
-	for(int i = 0; i <= t; i++){
-		test = q5_rotate(test, 1, 'l');
-		for(int i = 0; i <= sqrt(test); i++){
-			if(test % i == 0)
+	for(int i = 0; i < t; i++){
+		temp = a % 10;
+		a /= 10;
+		a = a + temp * pow(10,t-1);
+		cout << a << '\n';
+		
+		for (int i = 2; i <= sqrt(a); i++){
+			if(a % i == 0)
 				return 0;
 		}
 	}
 	return 1;
-	
 }
 
 int main(){
-//	cout << q2_positive_divisors(21)<<'\n';
-//	cout << q2_positive_divisors(4)<<'\n';
-//	cout << q2_positive_divisors(103456)<<'\n';
-//	cout << q2_positive_divisors(234889)<<'\n';
-//	int a1 = 100;
-//	int* a = &a1;
-//	int b1 = 50;
-//	int* b = &b1;
-//	swap(a, b);
-//	cout << *a << "   " << *b <<'\n';
-//	char test[4] = {'T','E','S','T'};
-//	cout << q3_string_hash(test);
+	int a1 = 100;
+	int* a = &a1;
+	int b1 = 50;
+	int* b = &b1;
+	q1_swap(a, b);
+	cout << *a <<" " << *b <<'\n';
+	cout << q2_positive_divisors(21)<<'\n';
+
+	char test[4] = {'T','E','S','T'};
+	cout << q3_string_hash(test);
+	
 	cout << q5_rotate(24579, 2, 'r')<<'\n';
-	cout << q5_rotate(24579, 2, 'l')<<'\n';
-	cout << q5_rotate(100000000, 7, 'l') << '\n';
-//	cout << q6_circular_prime(197);
+	
+	cout << q6_circular_prime(197);
 	
 }
