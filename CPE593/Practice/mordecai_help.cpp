@@ -53,40 +53,26 @@ unsigned long q4_diameter(unsigned int n, const double *x, const double *y){
 	}
 	return largestDistance;
 }
-
 unsigned int q5_rotate(unsigned int n, unsigned int r, char d){
-	int temp[r] = {0};
-	int t = 0;
-	int result = n;
-	if (d == 'r'){
-		for (int i = 0; i < r; i++){
-			temp[i] = result % 10;
-			result /= 10;
-		}
-		while(result / (int)pow(10, t) != 0)
-			t++;
-		for (int i = 1; i <= r; i++){
-			result += temp[i-1] * pow(10, t+i-1);
-		}
+	int t, temp = 0;
+	while(n / (int)pow(10, t) != 0)
+		t++;
+	r = r % t;
+	if(d =='r'){
+		temp = n % (int) pow(10, r);
+		n /= pow(10,r);
+		n = n + temp * pow(10,t-r);
 	}
-	if (d == 'l'){
-		while(result / (int)pow(10, t) != 0)
-			t++;
-		for(int i = 0; i < r; i++){
-			temp[i] = result / pow(10,t-1);
-			//cout << temp[i] << '\n';
-			if(temp[i] == 0)
-				t--;
-			result -= temp[i] * pow(10, t-1);
-			//cout << result <<'\n';
-			result = result * 10 + temp[i];
-		}
+	if(d == 'l'){
+		temp = n / (int) pow(10,t-r);
+		n = n % (int)pow(10,r+1);
+		n = n * pow(10,r) + temp;
 	}
-	return result;
+	return n;
 }
 
 int q6_circular_prime(unsigned int a){
-	int temp, t = a;
+	int t = 0;
 	unsigned int test = a;
 	while(a / (int)pow(10, t) != 0)
 		t++;
@@ -115,6 +101,8 @@ int main(){
 //	char test[4] = {'T','E','S','T'};
 //	cout << q3_string_hash(test);
 	cout << q5_rotate(24579, 2, 'r')<<'\n';
-	cout << q6_circular_prime(197);
+	cout << q5_rotate(24579, 2, 'l')<<'\n';
+	cout << q5_rotate(100000000, 7, 'l') << '\n';
+//	cout << q6_circular_prime(197);
 	
 }
