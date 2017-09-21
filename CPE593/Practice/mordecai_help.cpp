@@ -3,14 +3,11 @@
 #include<string>
 using namespace std;
 
-
-
 //Question 1
 void q1_swap(int *a, int *b){
 	int temp = *a;
-	a = b;
-	b = &temp;
-	cout << *a << *b <<'\n';
+	*a = *b;
+	*b = temp;
 }
 
 //Question 2
@@ -45,15 +42,17 @@ unsigned long q4_diameter(unsigned int n, const double *x, const double *y){
 	if (n == 0)
 		return 0;
 	unsigned long largestDistance = 0;
-	for (int i = 0; i > n; i++){
-		for(int j = 0; j > n; j++){
-			unsigned long distance = sqrt(pow(*(x+i) - *(y+i), 2) + pow(*(x+j) - *(y+j), 2));
+	for (int i = 0; i < n; i++){
+		for(int j = 0; j < n; j++){
+			unsigned long distance = abs(sqrt(pow(*(x+i) - *(x+j), 2) + pow(*(y+i) - *(y+j), 2)));
 			if (distance > largestDistance)
 				largestDistance =  distance;
 		}
 	}
 	return largestDistance;
 }
+
+//Question 5
 unsigned int q5_rotate(unsigned int n, unsigned int r, char d){
 	int t, temp = 0;
 	while(n / (int)pow(10, t) != 0)
@@ -72,6 +71,7 @@ unsigned int q5_rotate(unsigned int n, unsigned int r, char d){
 	return n;
 }
 
+//Question 6
 int q6_circular_prime(unsigned int a){
 	int t, temp = 0;
 	while(a / (int)pow(10, t) != 0)
@@ -80,8 +80,6 @@ int q6_circular_prime(unsigned int a){
 		temp = a % 10;
 		a /= 10;
 		a = a + temp * pow(10,t-1);
-		cout << a << '\n';
-		
 		for (int i = 2; i <= sqrt(a); i++){
 			if(a % i == 0)
 				return 0;
@@ -100,7 +98,11 @@ int main(){
 	cout << q2_positive_divisors(21)<<'\n';
 
 	char test[4] = {'T','E','S','T'};
-	cout << q3_string_hash(test);
+	cout << q3_string_hash(test) << '\n';
+	
+	double x[5] = {0,4,6,8,30};
+	double y[5] = {0,4,6,8,40};
+	cout << q4_diameter(5, x, y) << '\n';
 	
 	cout << q5_rotate(24579, 2, 'r')<<'\n';
 	
