@@ -88,6 +88,7 @@ int q6_circular_prime(unsigned int a){
 	return 1;
 }
 
+
 int main(){
 	int a1 = 100;
 	int* a = &a1;
