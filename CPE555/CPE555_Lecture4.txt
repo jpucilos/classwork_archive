@@ -1,0 +1,26 @@
+	**Homework 1 Review
+	** END Homework 1 Review
+	
+	
+Tonight's Lecture: Programming
+
+- The bare minimum to run software is a processor and some memory
+- 56% of embedded systems engineers use c, 22% use c++
+	- We're going to use c
+	
+Compilation process
+	Preprocessor
+		basically evaluates the #include lines, and processes macros
+	Compiler than converts the preprocessed source code into machine code
+	Embedded development often uses cross compilers for development
+	Linker combines compiler and the processer.
+	
+We need to insure that our variables are always the same size
+	Use the u_int library in order to do this.
+		
+Scopes in programming
+	where the variable is defined
+	Local
+	File
+	Global
+	
