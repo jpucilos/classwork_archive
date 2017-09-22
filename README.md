@@ -1,4 +1,4 @@
-### Classwork Archive
+# Classwork Archive
 
 This is where I store my lecture notes/ past homework assignments/ course materials for courses I've taken in the past, as well as links to other github repositories for those classes, if they exist.
 
