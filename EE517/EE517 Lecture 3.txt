@@ -1,0 +1,25 @@
+// Lecture 3
+
+Review RISC
+	1. Reduced number of opcodes
+	2. Functional units (helping hands)
+	3. Separation of data memory and instruction memory
+	4. Standard 4-bytes
+	5. All data needed by be within the register before execution
+	
+Structual Hazard - most prominent one results from accessing memory
+	- To solve this, RISC separates data memory and instruction memory.
+	
+Data Hazard
+	- you know this
+	
+Fetch - you don't know the instruction
+Decode - you read the instruction
+
+Program Counter - fetches the next location of the net instruction
+
+Control Hazard
+	- you don't know this
+	- the lecture ended, you may never know
+	
+	
