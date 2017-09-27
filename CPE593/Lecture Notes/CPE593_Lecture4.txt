@@ -1,0 +1,36 @@
+//Quiz next week
+	Things to know:
+		Primes
+		GCD
+		LCM
+		Factor
+		Eratosthenes' sieve
+		Modified Eratosthenes
+		//Big arithmetic
+		power
+			brute
+			non brute
+		powermod
+			understand that max value of m is half of max 64-bit number
+		Fermat
+			little theorem
+		Miller Rabin
+			handles Carmichael numbers
+			reigning king of prime number solving
+
+	Things not to know:
+		RSA
+		Diffie-Hellman?
+	
+
+Homework: 
+		Write high-performance Eratosthenes
+			be able to handle at least one billion
+			which is a gigabyte of our precious RAM
+			storage requirements
+				each boolean is 1 byte
+				stored as bits
+				don't store even numbers
+		you should definitely re-watch this lecture, go for the speed boosts
+		
+			
