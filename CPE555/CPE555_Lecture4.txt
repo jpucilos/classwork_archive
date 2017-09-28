@@ -24,3 +24,7 @@ Scopes in programming
 	File
 	Global
 	
+volatile
+	overwrite the possible mistakes that our compiler might make
+	
+The C language in a nutshell
