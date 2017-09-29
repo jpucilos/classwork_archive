@@ -1,0 +1,87 @@
+Interrupts and Timers
+
+We need our system to know when something happens:
+	So far we've just done sequential programming
+	
+Polling: A simple solution
+	a method to determine if an event occurred
+	"sitting outside waiting for your friend to show up"
+	constantly checking for an event
+	Problems:
+		inefficient: processor gets stuck doing nothing, waiting for condition
+		Could result in slower response times
+	Equivalent in C:
+		while loop that's satisfied only when a certain input is received
+
+Interrupts: the better alternative
+	Allow the processor to continue running other functions while waiting for an event
+	interrupt handler (Interrupt service routine)
+		PTSD
+		more PTSD
+	Vector Table:
+		either in hardware or software
+		holds processor state and return addresses and stuff like that
+	
+	Priorities:	
+		what happens if we have more than one interrupt occurring
+		priority order
+			read from LSB to MSB in the interrupt status register
+			but reading bits like this increases latency of interrupt handling
+		IRQ
+			a hardware block gives a unique number (IRQ) to each interrupt
+			IRQ represents the highest priority interrupt that is pending
+	Shared Data
+		between ISR and Main code
+		can cause data hazards
+		critical sections
+			where these bugs are most likely to occurred
+
+Timers:
+	we need to measure time
+	especially with embedded systems
+	Timer is a piece of hardware built into the processor
+	At least one timer is required for all operating systems
+		go into this more when we discuss scheduling
+			good for multi-tasking, timer DEFINITELY needed
+			
+	Clock source and timer accurracy
+		
+	Two types of timers:
+		one-shot and free-running
+			free-running starts -> goes to 0 -> triggers interrupt -> starts again
+				good for periodic events
+			one-shot must be started each time
+				useful for timing something once
+				Timeout events
+				
+Counters:
+	Like timers, don't count to/from a specific value
+	counters are usually incremented by some event (usually toggling an input pin)
+
+Watch-dog timers:
+	keeps processor from getting stuck
+	must be serviced so it doesn't expire
+		if it expires, then processor is reset
+
+
+		
+
+		
+		
+		
+		
+		
+Timer Example
+	2 MHz clock, what value to set timer for 25ms?
+	
+	1/2Mhz = 500ns
+	25 ms = 25000000 ns
+	25000000 / 500 = 50000
+	In hex: 0xC350
+	
+Another one:
+	5 MHz clock -> 200 ns
+	0x2000 = 8192
+	8192*200ns = 1.6384 ms
+	
+	
