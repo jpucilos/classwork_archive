@@ -25,6 +25,8 @@ unsigned long long choose(int n, int r){
 
 
 int main(){
+	
+	cout << choose(39, 7) <<'\n';
 	srand((int)time(0));
 	int i = 0;
 	while(i++ < 100000000) {
