@@ -1,10 +1,22 @@
+/*
+ * HW1a.cpp
+ *
+ *  Created on: October 7th, 2015
+ *      Author: Joseph Puciloski
+ *     Sources: https://turjachaudhuri.wordpress.com/2013/12/14/spoj-prime-1-segmented-sieve-of-eratosthenes/
+ *				https://medium.com/@agilanbtdw/prime-number-generation-in-java-using-segmented-sieve-of-eratosthenes-187af1dcd051#.z8b28nx8x
+ *				http://codeforces.com/blog/entry/3519
+ *				http://www.geeksforgeeks.org/segmented-sieve/
+ */
+
+
 #include <iostream>
 #include <cmath>
 #include <vector>
 #include <cstdint>
 using namespace std;
 
-
+/*
 vector<uint64_t> simpleSieve(uint64_t n){
 	bool primes[n] = {0};
 	vector<uint64_t> prime;
@@ -17,54 +29,59 @@ vector<uint64_t> simpleSieve(uint64_t n){
 	}
 	return prime;
 }
+*/
 
-
-int homework1a(uint64_t a, uint64_t b){
-	int result = 0;
-	
-	uint64_t delta = sqrt(b);
-	vector<uint64_t> primeSqrt = simpleSieve(delta);
-	
-	uint64_t lo = a;
-	uint64_t hi = a + delta;
-	if (a < delta)
-		lo = delta;
-		hi = 2 * delta;
-	
-	
-	while(lo < b){
-	//	cout << "lo:" << lo << " hi:" << hi <<'\n';
-		bool temp[delta+1] = {0};
-		for(int i = 0; i < primeSqrt.size(); i++){
-			uint64_t loLim = lo / primeSqrt[i];
-			loLim *= primeSqrt[i];
-			if(loLim < lo)
-				loLim +=primeSqrt[i];
-		//	cout << "LoLim: " << loLim <<'\n';
-			for(uint64_t j = loLim; j <= hi; j+= primeSqrt[i]){
-				temp[j-loLim] = true;
-		//		cout << j << '\n';
-			}
-		}	
-		
-		for(uint64_t i = 0; i <= delta; i++)
-			if(!temp[i])
-				result++;
-		lo+=delta;
-		hi+=delta;
-		if(hi>b)
-			hi = b;
-		//cout << "result: " << result <<'\n';
-	}
-	for (auto x: primeSqrt)
-		if (a < x)
-			result++;
-			
-	return result;
+uint64_t hw1a(uint64_t a, uint64_t b){
+    uint64_t a_size = sqrt(b);
+    int prime_count = 0;
+    uint64_t primes = 0;
+    //simple sieve
+    vector<bool> sieve(a_size, true);
+    vector<int> simple;
+    sieve[0], sieve[1] = false;
+    for (uint64_t i = 4; i <= a_size; i += 2)
+    	sieve[i] = false;
+    for (uint64_t i = 2; i <= a_size; i++){
+        if (sieve[i]){ 
+            if (i>=a)  
+                prime_count++;
+            simple.push_back(i);
+            for (uint64_t j = i*i; j <= a_size; j += 2*i)
+                sieve[j] = false;   //num is composite
+            primes++;
+        }
+    }
+    sieve.clear(); 
+    uint64_t lo = a; 
+    if (lo < a_size)
+    	lo = a_size+1;
+    uint64_t hi = lo+a_size;
+    if (hi > b)
+    	hi = b;
+    while (lo < b){
+    	vector<bool> seg(hi-lo+1, true);
+        for (uint64_t i = 0; i < primes; i++){
+            uint64_t first_mult = (lo/simple[i])*simple[i];
+            if (first_mult<lo)
+                first_mult+=simple[i];
+            for (uint64_t j = first_mult; j <= hi; j += simple[i])
+                seg[j-lo] = false; //num is composite
+        }
+        for (uint64_t i = lo; i <= hi; i++){
+            if (seg[i-lo] && i>=a){
+                prime_count++;
+            }
+        }
+        lo += a_size+1;
+        hi += a_size+1;
+        if (hi >= b)
+            hi = b;
+    }
+    return prime_count;
 }
 
 int main(){
 	uint64_t a,b= 0;
 	cin >> a >> b;
-	cout << homework1a(a,b);
+	cout << hw1a(a,b);
 }
