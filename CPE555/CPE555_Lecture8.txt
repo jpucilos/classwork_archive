@@ -45,3 +45,15 @@ Cooperative multitasking
 Preemptive multitasking
 	usually highest priority task is the one that's run
 	scheduler makes this decision
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Midterm Corrections
+	you're an idiot
