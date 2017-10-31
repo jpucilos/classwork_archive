@@ -1,0 +1,59 @@
+CPE 555 Lecture 8 Real-Time Operating Systems
+
+Bare metal:
+	no operating system at all
+	super high performance, but lacks advanced functionality
+	best for simple tasks and such
+	
+Real-time kernals
+	not full featured OS
+	still has real-time scheduler to develop multi-threaded apps
+	scheduler runs with deterministic latency
+	small code, still somewhat small applications
+	
+Real-Time Operating Systems
+	RTOS
+	also has a schedulerlarger memory footprint
+	file system support, networking stacks
+	
+Linux
+	most common operating system in embedded
+	common where real-time performance is not needed
+	android is based on Linux
+	scheduler isn't considered real-time
+
+	
+Parallelism
+	multiprocessing
+		multiple processors, or multiple cores
+	multiprogramming
+		switches between tasks rapidly, making multiple processes appear to be ran concurrently
+			We're being lied to
+		
+Process lifestyle
+	created->ready->running->blocked(possibly)->terminated
+	blocked process: process is waiting for external event
+	Terminated: process has completed, resources for process are still reserved, still exists
+
+*Scheduler is actually switching between threads, not actually switching between processes
+
+
+Cooperative multitasking
+	a task starts executing until work is finished
+	each task needs to take control of processor at regular intervals
+	
+Preemptive multitasking
+	usually highest priority task is the one that's run
+	scheduler makes this decision
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+Midterm Corrections
+	you're an idiot

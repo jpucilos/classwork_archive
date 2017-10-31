@@ -1,0 +1,8 @@
+CPE 517 Lecture 5
+
+Second half of course
+	We will be using verilog
+	
+Verilog
+	allows us to work with transistor level, gate level, and even algorithmic level.
+	
