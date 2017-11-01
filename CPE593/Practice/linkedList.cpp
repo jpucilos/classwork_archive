@@ -1,9 +1,6 @@
 #include<iostream>
 using namespace std;
 
-
-
-
 class LinkedList{
 private:
 	class Node{
@@ -19,13 +16,13 @@ public:
 	LinkedList() : head(nullptr){}
 	
 	//Why is this not working?
-//	~LinkedList () {
-//		Node* q = nullptr;
-//		for(Node* p = head; p != nullptr; p = q){
-//			q = p->next;
-//			delete p;
-//		}
-//	}
+	~LinkedList () {
+		Node* q;
+		for(Node* p = head; p != nullptr; p = q){
+			q = p->next;
+			delete p;
+		}
+	}
 
 	friend ostream& operator <<(ostream& s, LinkedList list){
 		for (Node* temp = list.head; temp != nullptr; temp = temp->next)
@@ -49,14 +46,19 @@ public:
 	
 	void insert(int v, int i){
 		Node* p = head;
-		
-		while(i>0){
+		Node* temp = nullptr;
+		if(i == 0){
+			addStart(v);
+			return;
+		}
+		while(i>1){
 			if(p == nullptr)
-				return;
+				break;
 			p= p->next;
 			i--;
 		}	
-		p->next = new Node(v, nullptr);		
+		temp = p->next;
+		p->next = new Node(v, temp);		
 	}
 	
 	
@@ -83,7 +85,7 @@ int main(){
 	a.addStart(4);
 	a.addStart(3);
 	a.addStart(1);
-	a.insert(2, 2);
+	a.insert(2, 1);
 	a.addEnd(5);
 	a.addEnd(6);
 

@@ -1,0 +1,27 @@
+quickSort(linkedlist)
+
+Node*p = head;
+Node*q = tail;
+
+
+while p < q {
+	while( p.v <pivot) {
+		p = p.next
+	}
+	while (q.v > pivot)		//O(n)
+		p=p.prev			//O(n)
+	}
+}
+
+
+
+MergeSort(list)
+	what
+	
+reverse(linkedlist)
+
+
+Check out session 11 - Matrices
+	Everything interesting in matrices is N^3
+	
+	
