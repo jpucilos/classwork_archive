@@ -1,0 +1,56 @@
+CPE555 Lecture 9
+Multitasking
+
+Shared data
+	threads share the same address space
+	if one thread deletes an element from a queue that another is reading from
+		we have a problem
+		data will be inconsistent
+		
+Race Conditions
+	data can be different depending on order of task execution
+
+
+Critical Sections
+	sections of code that access shared data are called critical sections
+	these are certain sections that need to be protected from these race conditions and other problems
+	Solution: block other threads when one thread is in a critical sections
+		disable interrupts
+		re-enable after critical section has passed
+	Solution: Lock Variables
+		bathroom metaphor round 4
+		Thread locks door when entering critical section, and unlocks when it leaves
+		
+Atomic operation
+	one step
+	
+Test and Set Instruction
+	single instruction, checks lock, if unlocked, lock it
+	
+Buffer Overflow
+	producer thread puts into buffer faster than consumer thread can take them out
+	buffer is a shared resource
+	make sure that only one thread is accessing buffer at a time
+	example, receiving network packets
+		one thread retrieves from Ethernet interface - producer
+		one thead receives the network packets - consumer
+	
+	Solution: busy waiting - constantly check to see if value is true
+		CPU does not make progress in program
+		using this with lock variable is called spinlock
+	
+	Semaphores
+		special synchonization variable	
+		integer that counts some number of resources that are available/used
+		non-negative
+		*two operations P(s) and V(s), check slides
+		ensure that less than a certain amount of threads are accessing a shared resource at a time
+		keeps a count of how many of some resource are available
+			in a queue, keeps number of free spaces left
+		use semaphores and mutexes to guard critical sections of code
+		
+Dining Philosopher's Problem
+	Pre-emption and priority is a good solution
+	
+Priority Inversion
+	slides

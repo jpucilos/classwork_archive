@@ -47,13 +47,7 @@ Preemptive multitasking
 	scheduler makes this decision
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
 Midterm Corrections
 	you're an idiot
+	
+	

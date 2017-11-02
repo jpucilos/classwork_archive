@@ -11,7 +11,6 @@ private:
 	Node* next;
 	Node(int v, Node* next) : v(v), next(next){}
 	};
-	
 	Node* head;
 	Node* tail;
 	
