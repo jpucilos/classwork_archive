@@ -15,7 +15,9 @@ private:
 public:
 	LinkedList() : head(nullptr){}
 	
+
 	//Why is this not working?
+/*
 	~LinkedList () {
 		Node* q;
 		for(Node* p = head; p != nullptr; p = q){
@@ -23,7 +25,7 @@ public:
 			delete p;
 		}
 	}
-
+*/
 	friend ostream& operator <<(ostream& s, LinkedList list){
 		for (Node* temp = list.head; temp != nullptr; temp = temp->next)
 			s << temp->val << ',';
@@ -41,6 +43,10 @@ public:
 	} 
 	
 	void addStart(int v){
+		if(head == nullptr){
+			head = new Node(v, nullptr);
+			return;
+		}
 		head = new Node(v,head);
 	}
 	
