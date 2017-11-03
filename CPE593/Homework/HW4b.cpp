@@ -1,10 +1,10 @@
 /*
  * 		HW4b.cpp
- *
  *	  	Created on: November 1st, 2017
  *      Author: Joseph Puciloski
  *     	Sources: HW4a.cpp, Lecture Notes
  */
+ 
 #include<string>
 #include<iostream>
 #include<fstream>
@@ -20,25 +20,21 @@ private:
 		Node* next;
 		Node (int val, Node* prev, Node* next): val(val), prev(prev), next(next) {}
 	};
-	
-	
+
 	Node* head;
-	Node* tail;
-	
-	
+	Node* tail;	
+
 public:
 	DLinkedList2() : head(nullptr), tail(nullptr) {}
 	
-	
 	//Why is this not working?
-	
-	// ~DLinkedList2(){
-		// Node* q;
-		// for (Node* p = head; p!= nullptr; p = q){
-			// q = p->next;
-			// delete p;
-		// }
-	// }
+//	 ~DLinkedList2(){
+//		 Node* q;
+//		 for (Node* p = head; p != nullptr; p = q){
+//			 q = p->next;
+//			 delete p;
+//		 }
+//	 }
 	
 	friend ostream& operator <<(ostream& s, DLinkedList2 list){
 		for(Node* p = list.head; p != nullptr; p = p->next)
@@ -160,3 +156,8 @@ int main(){
 	}
 	f.close();
 }
+
+
+//Expected test output:
+//9,7,5,3,1,5,10,15,20,25,
+//5,3,1,5,10,15,
