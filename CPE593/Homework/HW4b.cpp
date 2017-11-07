@@ -20,50 +20,40 @@ private:
 		Node* next;
 		Node (int val, Node* prev, Node* next): val(val), prev(prev), next(next) {}
 	};
-	
-	
 	Node* head;
 	Node* tail;
-	
-	
 public:
 	DLinkedList2() : head(nullptr), tail(nullptr) {}
-	
-	
-	//Why is this not working?
-	
-	// ~DLinkedList2(){
-		// Node* q;
-		// for (Node* p = head; p!= nullptr; p = q){
-			// q = p->next;
-			// delete p;
-		// }
-	// }
-	
+	~DLinkedList2(){
+		Node* q;
+		for (Node* p = head; p!= nullptr; p = q){
+			q = p->next;
+			delete p;
+		}
+	}
 	friend ostream& operator <<(ostream& s, DLinkedList2 list){
 		for(Node* p = list.head; p != nullptr; p = p->next)
 			s << p->val<<',';
 		return s;
 	}
-	
 	void addStart(int val){
 		if(head == nullptr){
 			head = tail = new Node(val, nullptr, nullptr);
 			return;
 		}
-		head = new Node(val, nullptr, head);
-		(head->next)->prev = head;
+		Node* temp = new Node(val, nullptr, head);
+		head->prev = temp;
+		head = temp;
 	}
-	
 	void addEnd(int val){
 		if(head == nullptr){
 			head = tail = new Node(val, nullptr, nullptr);
 			return;
 		}
-		tail = new Node(val, tail, nullptr);
-		(tail->prev)->next = tail;
+		Node* temp = new Node(val, tail, nullptr);
+		tail->next = temp;
+		tail = temp;
 	}
-
 	void removeEnd(){
 		if(tail == nullptr)
 			return;
@@ -71,11 +61,11 @@ public:
 			delete head;
 			head = tail = nullptr;
 		}
+		Node* temp  = tail;
 		tail = tail -> prev;
-		delete tail-> next;
+		delete temp;
 		tail -> next = nullptr;
 	}
-	
 	void removeStart(){
 		if(head == nullptr)
 			return;
@@ -85,8 +75,8 @@ public:
 		}
 		Node* temp = head;
 		head = head-> next;
-		head-> prev = nullptr;
 		delete temp;
+		head-> prev = nullptr;
 	}
 };
 
@@ -96,22 +86,22 @@ int main(){
 	string action;
 	while(f >> action){
 		if(action == "OUTPUT")
-			cout << temp << '\n';	
+			cout << temp << '\n';
 		else if (action == "ADD_FRONT"){
 			string numbers;
 			f >> numbers;
 			int pos, a, b, c;
-			
+
 			pos = numbers.find(":");
 			stringstream strTointa(numbers.substr(0, pos));
 			strTointa >> a;
 			numbers.erase(0, pos + 1);
-			
+
 			pos = numbers.find(":");
 			stringstream strTointb(numbers.substr(0, pos));
 			strTointb >> b;
 			numbers.erase(0, pos + 1);
-			
+
 			stringstream strTointc(numbers);
 			strTointc >> c;
 			for (int i = a; i <= c; i += b){
@@ -122,22 +112,22 @@ int main(){
 			string numbers;
 			f >> numbers;
 			int pos, a, b, c;
-			
+
 			pos = numbers.find(":");
 			stringstream strTointa(numbers.substr(0, pos));
 			strTointa >> a;
 			numbers.erase(0, pos + 1);
-			
+
 			pos = numbers.find(":");
 			stringstream strTointb(numbers.substr(0, pos));
 			strTointb >> b;
 			numbers.erase(0, pos + 1);
-			
+
 			stringstream strTointc(numbers);
 			strTointc >> c;
-			
+
 			for (int i = a; i <= c; i += b)
-				temp.addEnd(i);	
+				temp.addEnd(i);
 		}
 		else if (action == "REMOVE_BACK"){
 			string numbers;
