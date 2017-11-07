@@ -1,10 +1,10 @@
 /*
  * 		HW4b.cpp
- *
  *	  	Created on: November 1st, 2017
  *      Author: Joseph Puciloski
  *     	Sources: HW4a.cpp, Lecture Notes
  */
+ 
 #include<string>
 #include<iostream>
 #include<fstream>
@@ -31,6 +31,10 @@ public:
 			delete p;
 		}
 	}
+
+	Node* head;
+	Node* tail;	
+
 	friend ostream& operator <<(ostream& s, DLinkedList2 list){
 		for(Node* p = list.head; p != nullptr; p = p->next)
 			s << p->val<<',';
@@ -150,3 +154,7 @@ int main(){
 	}
 	f.close();
 }
+
+//Expected test output:
+//9,7,5,3,1,5,10,15,20,25,
+//5,3,1,5,10,15,
