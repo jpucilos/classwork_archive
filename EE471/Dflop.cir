@@ -1,0 +1,75 @@
+* D Flip Flop Model
+* jpucilos@stevens.edu 12/8/17
+.include Mosis_tsmc_180nm.model
+*
+Vvdd VDD GND 3.3
+VinD D GND dc 0 pulse 0 3.3 0ns 0.1ns 0.1ns 25ns 50ns
+VinCLK CLK GND dc 0 pulse 0 3.3 12ns 0.1ns 0.1ns 25ns 50ns
+*
+MInv1 invD D gnd gnd NMOS W=0.4u L=0.2u AD=1.6E-13 PD=1.6u AS=1.6E-13 PS=1.6u
+MInv2 invD D vdd vdd PMOS W=0.8u L=0.2u AD=3.2E-13 PD=2.4u AS=3.2E-13 PS=2.4u
+*
+*Master
+*
+*NAND Gate for D and Clk - output W
+MN11 A1 D GND GND NMOS L=0.18um W=0.8um
+MN12 W CLK A1 GND NMOS L=0.18um W=0.8um
+MP11 W D VDD VDD PMOS L=0.18um W=0.8um
+MP12 W CLK VDD VDD PMOS L=0.18um W=0.8um
+Cout1 W GND 100fF
+*
+*NAND Gate for invD and Clk - output X
+MN21 A2 invD GND GND NMOS L=0.18um W=0.8um
+MN22 X CLK A2 GND NMOS L=0.18um W=0.8um
+MP21 X invD VDD VDD PMOS L=0.18um W=0.8um
+MP22 X CLK VDD VDD PMOS L=0.18um W=0.8um
+Cout2 X GND 100fF
+*
+*NAND Gate for W and Y - output Z
+MN31 A3 W GND GND NMOS L=0.18um W=0.8um
+MN32 Z Y A3 GND NMOS L=0.18um W=0.8um
+MP31 Z W VDD VDD PMOS L=0.18um W=0.8um
+MP32 Z Y VDD VDD PMOS L=0.18um W=0.8um
+Cout3 Z GND 100fF
+*
+*NAND Gate for X and Z - output Y
+MN41 A4 X GND GND NMOS L=0.18um W=0.8um
+MN42 Y Z A4 GND NMOS L=0.18um W=0.8um
+MP41 Y X VDD VDD PMOS L=0.18um W=0.8um
+MP42 Y Z VDD VDD PMOS L=0.18um W=0.8um
+Cout4 Y GND 100fF
+*
+*Slave
+*
+MInv3 invCLK CLK gnd gnd NMOS W=0.4u L=0.2u AD=1.6E-13 PD=1.6u AS=1.6E-13 PS=1.6u
+MInv4 invCLK CLK vdd vdd PMOS W=0.8u L=0.2u AD=3.2E-13 PD=2.4u AS=3.2E-13 PS=2.4u
+*
+*NAND Gate for Z and invClk - output W2
+MN51 A5 Z GND GND NMOS L=0.18um W=0.8um
+MN52 W2 invCLK A5 GND NMOS L=0.18um W=0.8um
+MP51 W2 Z VDD VDD PMOS L=0.18um W=0.8um
+MP52 W2 invCLK VDD VDD PMOS L=0.18um W=0.8um
+Cout5 W2 GND 100fF
+*
+*NAND Gate for y and invClk - output X2
+MN61 A6 Y GND GND NMOS L=0.18um W=0.8um
+MN62 X2 invCLK A6 GND NMOS L=0.18um W=0.8um
+MP61 X2 Y VDD VDD PMOS L=0.18um W=0.8um
+MP62 X2 invCLK VDD VDD PMOS L=0.18um W=0.8um
+Cout6 X2 GND 100fF
+*
+*NAND Gate for W2 and Q_bar - output Q
+MN71 A7 W2 GND GND NMOS L=0.18um W=0.8um
+MN72 Q Q_bar A7 GND NMOS L=0.18um W=0.8um
+MP71 Q W2 VDD VDD PMOS L=0.18um W=0.8um
+MP72 Q Q_bar VDD VDD PMOS L=0.18um W=0.8um
+Cout7 Q GND 100fF
+*
+*NAND Gate for X2 and Q - output Q_bar
+MN81 A8 X2 GND GND NMOS L=0.18um W=0.8um
+MN82 Q_bar Q A8 GND NMOS L=0.18um W=0.8um
+MP81 Q_bar X2 VDD VDD PMOS L=0.18um W=0.8um
+MP82 Q_bar Q VDD VDD PMOS L=0.18um W=0.8um
+Cout8 Q_bar GND 100fF
+*
+.tran .1ns 100ns
