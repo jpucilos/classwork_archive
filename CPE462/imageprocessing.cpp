@@ -140,7 +140,7 @@ int main(int argc, char *argv[])
 	}
 	*/
 
-	//Part 3
+	/*
 	for (j = 0; j < height; j++){
 		for (k = 0; k < width; k++){
 			float mask[3][3] = { { 0.0, -1.0, 0.0 }, { -1.0, 5.0, -1.0 }, { 0.0, -1.0, 0.0 } };
@@ -164,6 +164,40 @@ int main(int argc, char *argv[])
 			image_out[j][k] = (int)value_out;
 		}
 	}
+	*/
+
+	//Homework 7.3
+	new_T = 175.0;
+	delta_T = 100.0;
+
+	while (delta_T < -5.0 || delta_T > 5.0){
+
+		count1 = 0; 
+		count2 = 0;
+		sum1 = 0.0; 
+		sum2 = 0.0;
+
+		for (j = 0; j < height; j++)
+			for (k = 0; k < width; k++){
+				if (image_in[j][k] >= new_T){
+					count1++;
+					sum1 += image_in[j][k];
+				}	
+				else{
+					count2++;
+					sum2 += image_in[j][k];
+				}
+		}
+		old_T = new_T;
+		new_T = ((sum1 / count1) + (sum2 / count2)) / 2;
+		delta_T = new_T - old_T;
+		printf("new threshold = %f \n", new_T);
+	}
+	//thresholding occurs here
+	for (j = 0; j < height; j++)
+		for (k = 0; k < width; k++)
+			image_out[j][k] = (image_in[j][k] >= new_T ? 255 : 0);
+
 
 /********************************************************************/
 /* Image Processing ends                                          */
