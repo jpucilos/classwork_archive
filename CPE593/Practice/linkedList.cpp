@@ -1,101 +1,74 @@
 #include<iostream>
 using namespace std;
 
-class LinkedList{
+
+
+class LinkedList2 {
 private:
 	class Node{
-	public:
-		int val;
-		Node* next;
-		Node(int v, Node* n) : val(v), next(n) {}
-	};
 	
+	int v;
+	Node* next;
+	Node(int v, Node* next) : v(v), next(next){}
+	};
 	Node* head;
+	Node* tail;
 	
 public:
-	LinkedList() : head(nullptr){}
-	
-
-	//Why is this not working?
-/*
-	~LinkedList () {
+	LinkedList2() : head(nullptr) {} //O(1)
+	~LinkedList2(){ //O(n)
 		Node* q;
 		for(Node* p = head; p != nullptr; p = q){
-			q = p->next;
+			q = p ->next;
 			delete p;
 		}
 	}
-*/
-	friend ostream& operator <<(ostream& s, LinkedList list){
-		for (Node* temp = list.head; temp != nullptr; temp = temp->next)
-			s << temp->val << ',';
-		return s;
-	}
-	
-	void addEnd (int v){
-		if (head == nullptr) {
-			head = new Node(v, nullptr);
-			return;
-		}
-		Node* p;
-		for (p = head; p->next != nullptr; p = p -> next);
-		p->next = new Node(v, nullptr);
-	} 
-	
 	void addStart(int v){
-		if(head == nullptr){
-			head = new Node(v, nullptr);
+		if (head == nullptr){
+			head = tail = new Node(v,nullptr);
 			return;
 		}
-		head = new Node(v,head);
+		head = new Node(v, head);
 	}
-	
-	void insert(int v, int i){
-		Node* p = head;
-		Node* temp = nullptr;
-		if(i == 0){
-			addStart(v);
+	void addEnd(int v){
+		if(head == nullptr) {
+			head = tail = new Node(v,nullptr);
 			return;
 		}
-		while(i>1){
-			if(p == nullptr)
-				break;
-			p= p->next;
-			i--;
-		}	
-		temp = p->next;
-		p->next = new Node(v, temp);		
+		tail->next = new Node (v, nullptr);
+		tail = tail->next;
 	}
-	
-	
 	void removeEnd(){
-		if(head == nullptr)
+		if(tail == nullptr)
 			return;
 		if(head->next == nullptr){
-			head = nullptr;
-			return;
+			delete head;
+			head = tail = nullptr;
 		}
-		Node *p;
-		for (p = head; p->next != nullptr; p = p -> next);
-		delete p ->next;
+		Node* p;
+		for (p = head; p->next != tail; p = p->next);
 		p->next = nullptr;
+		delete tail;
+		tail = p;
 	}
-
-};
-
-
-int main(){
 	
-	LinkedList a;
-
-	a.addStart(4);
-	a.addStart(3);
-	a.addStart(1);
-	a.insert(2, 1);
-	a.addEnd(5);
-	a.addEnd(6);
-
-	cout << a << '\n';
+	void removeStart(){
+		if(head == nullptr)
+			return;
+		if(head-> next == nullptr){
+			delete head;
+			head = tail = nullptr;
+		}
+		Node temp = head;
+		head = head-> next;
+		delete temp;
+	}
 	
-	return 0;
+	int get(int i){
+		Node* p = head;
+		for (; p->next != tail; p = p->next);
+		if(p == nullptr)
+			throw "ough";
+		return p -> v;
+	}
 }
