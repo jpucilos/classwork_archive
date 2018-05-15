@@ -1,0 +1,18 @@
+Joseph Puciloski
+Final Project Type V - Chat Server/Client
+
+Instructions:
+
+This code generates a chat server that accepts multiple clients. Basic GUIs were created using javax.swing and JFrame.
+
+Steps to run the chat client:
+
+1. With all the classes in the same directory, run ChatServer.java. This will start the server and allow new clients to connect. A small empty window should appear that will eventually display the events on the server.
+
+2. Next, run ChatClient.java. This will open the GUI for a chat client where you will be able to enter your name and connect to the server. If the connection is successful the chat client will display "Connection accepted" and the server will show that a new client has connected.
+
+3. In order to create and connect another chat client the same process as in step 2 can be followed again.
+
+4. Once the clients are connected, they can communicate by sending the messages from the "Enter Text" field, which will also appear in the server window.
+
+5. To disconnect, close the window for the chat client and the server window will display that that user has disconnected.
