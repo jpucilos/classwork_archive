@@ -1,0 +1,37 @@
+# File: Generic_180nm.ext
+# For: Extract definition file
+# Technology: Generic 180 nm Process
+#****************************************************************************
+
+connect(n well wire, ndiff, ndiff)
+connect(Substrate, pdiff, pdiff)
+connect(ndiff, Metal1, Contact)
+connect(pdiff, Metal1, Contact)
+connect(poly wire, Metal1, Contact)
+connect(Metal1, Metal2, Via1)
+connect(Metal2, Metal3, Via2)
+connect(Metal3, Metal4, Via3)
+
+ATTACH(P_Implant, pdiff)
+ATTACH(N_Implant, ndiff)
+
+# NMOS transistor with poly gate
+device = MOSFET(
+               RLAYER=ntran;  
+               Drain=ndiff, AREA, PERIMETER;
+               Gate=poly wire;   
+               Source=ndiff, AREA, PERIMETER;
+               Bulk=Substrate;
+               MODEL=NMOS;
+               )
+
+# PMOS transistor with poly gate
+device = MOSFET(
+               RLAYER=ptran;
+               Drain=pdiff, AREA, PERIMETER;
+               Gate=poly wire;
+               Source=pdiff, AREA, PERIMETER;
+               Bulk=n well wire;
+               MODEL=PMOS;
+               )
+

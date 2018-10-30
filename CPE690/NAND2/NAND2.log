@@ -1,0 +1,41 @@
+T-Spice - Tanner SPICE
+Version 16.03
+Network license from: lmserver.campus.stevens-tech.edu
+Product Release ID: T-Spice Win64 16.03.20130808.02:11:23
+Copyright © 1988-2013 Tanner EDA
+
+	Parsing "E:\git\classwork_archive\CPE690\NAND2.sp"
+	Including "E:\git\classwork_archive\CPE690\mosis_tsmc_180nm_18.model"
+
+Start of NAND2.sp
+Loaded BSIM3v31 model library, Berkeley BSIM3 VERSION 3.1 with extensions
+
+	Opening simulation database "E:\git\classwork_archive\CPE690\NAND2.tsim"
+
+Accuracy and Convergence options:
+           gmin = 1e-009 [mhos]
+
+General options:
+        threads = 1
+
+ Device and node counts:
+              MOSFETs -       4
+    MOSFET geometries -       4
+           Capacitors -       1
+      Voltage sources -       4
+          Subcircuits -       0
+    Model Definitions -       2
+      Computed Models -       2
+    Independent nodes -       2
+       Boundary nodes -       5
+          Total nodes -       7
+
+Parsing                      0.01 seconds
+Setup                        0.00 seconds
+DC operating point           0.01 seconds
+Transient Analysis           0.05 seconds
+Overhead                     0.77 seconds
+-----------------------------------------
+Total                        0.84 seconds
+
+Simulation completed

@@ -1,0 +1,15 @@
+T-Spice - Tanner SPICE
+Version 16.03
+Network license from: lmserver.campus.stevens-tech.edu
+Product Release ID: T-Spice Win64 16.03.20130808.02:11:23
+Copyright © 1988-2013 Tanner EDA
+
+	Parsing "E:\git\classwork_archive\CPE690\NAND2\NAND2.sp"
+Fatal Error : "NAND2.sp" line 14 .include file "mosis_tsmc_180nm_18.model" not found!
+
+Parsing                      0.00 seconds
+Overhead                     0.88 seconds
+-----------------------------------------
+Total                        0.88 seconds
+
+Simulation failed	with  1 Fatal Error

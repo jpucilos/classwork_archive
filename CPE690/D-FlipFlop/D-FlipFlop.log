@@ -1,0 +1,41 @@
+T-Spice - Tanner SPICE
+Version 16.03
+Network license from: lmserver.campus.stevens-tech.edu
+Product Release ID: T-Spice Win64 16.03.20130808.02:11:23
+Copyright © 1988-2013 Tanner EDA
+
+	Parsing "E:\git\classwork_archive\CPE690\D-FlipFlop.spc"
+	Including "E:\git\classwork_archive\CPE690\mosis_tsmc_180nm_18.model"
+
+Start of D-FlipFlop.spc
+Loaded BSIM3v31 model library, Berkeley BSIM3 VERSION 3.1 with extensions
+
+	Opening simulation database "E:\git\classwork_archive\CPE690\D-FlipFlop.tsim"
+
+Accuracy and Convergence options:
+           gmin = 1e-009 [mhos]
+
+General options:
+        threads = 1
+
+ Device and node counts:
+              MOSFETs -      34
+    MOSFET geometries -       6
+           Capacitors -       1
+      Voltage sources -       4
+          Subcircuits -      44
+    Model Definitions -       2
+      Computed Models -       2
+    Independent nodes -      17
+       Boundary nodes -       5
+          Total nodes -      22
+
+Parsing                      0.01 seconds
+Setup                        0.01 seconds
+DC operating point           0.00 seconds
+Transient Analysis           0.19 seconds
+Overhead                     1.50 seconds
+-----------------------------------------
+Total                        1.72 seconds
+
+Simulation completed
