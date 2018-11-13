@@ -1,4 +1,4 @@
-CPE 517 Lecture 5
+EE 517 Lecture 5
 
 Second half of course
 	We will be using verilog

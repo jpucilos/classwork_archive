@@ -1,4 +1,4 @@
-// Lecture 3
+EE 517 Lecture 3
 
 Review RISC
 	1. Reduced number of opcodes
@@ -11,15 +11,11 @@ Structual Hazard - most prominent one results from accessing memory
 	- To solve this, RISC separates data memory and instruction memory.
 	
 Data Hazard
-	- you know this
+	- can happen because of pipelining
 	
 Fetch - you don't know the instruction
 Decode - you read the instruction
 
 Program Counter - fetches the next location of the net instruction
-
-Control Hazard
-	- you don't know this
-	- the lecture ended, you may never know
 	
 	

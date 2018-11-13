@@ -15,13 +15,11 @@ Turing possible father of computer architecture
 
 1970
 	Bell Labs
-	someone call Ackland
-	John Bardeen or something
+	John Bardeen
 		Transistors
 		Second nobel prize for Transistor
 		greatly reduce size of computer
 	Shockley
-		seriously someone call Ackland
 		wafer level, microprocessors
 		Intel - missiles, ships, aircraft etc.
 	
@@ -36,4 +34,4 @@ Turing possible father of computer architecture
 	R.I.S.C - Reduced Instruction Set Computing
 		150- instructions
 	Stored Program Model
-		Alright this is just Embedded Systems is it not?
+		Embedded systems
