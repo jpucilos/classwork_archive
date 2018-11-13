@@ -1,7 +1,4 @@
 Lecture 3:
-Test
-
-After test:
 
 Euclid GCD formula
 

@@ -1,8 +1,6 @@
 #include<iostream>
 using namespace std;
 
-
-
 class DLinkedList2 {
 private:
 	class Node{

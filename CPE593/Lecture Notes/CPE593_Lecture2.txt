@@ -12,11 +12,7 @@ Binary Search with and without recursion
 	-Gotta know both
 	-Splits array in two
 	
-	
-	
-	
 Golden Mean Search
-
 
 Shuffling
 

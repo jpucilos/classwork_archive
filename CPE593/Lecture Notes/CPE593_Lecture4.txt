@@ -31,5 +31,4 @@ Homework:
 				each boolean is 1 byte
 				stored as bits
 				don't store even numbers
-		you should definitely re-watch this lecture, go for the speed boosts
 			

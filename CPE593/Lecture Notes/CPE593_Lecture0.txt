@@ -1,25 +1,4 @@
-
 CPE-593 Advanced Data Structures and Algorithms: Lecture 0
-
-Tests are 85% of the grade, don't mess those up
-
-All homework code must contain the comment:
-
-/*
-	Author: Joseph Puciloski
-*/
-
-And if you got help:
-
-/*
-	Author: Joseph Puciloski
-	cite; (any person who helped you, and what you got from them)
-*/
-
-Even things like stack exchange and B213 help is to be recorded.
-
-Textbook (CLRS)
-"Introduction to Algorithms: 3rd edition"
 
 ****Lecture****
 
@@ -32,18 +11,8 @@ Omega(f(n)) (lower bound case)		f(n) = 5n^2 + 5000n + 10000000		Omega(n^2)		*If 
 
 Theta(f(n))	(where upper and lower are same)							f(n) = 5n^2 + 5000n + 10000000		Theta(n^2)
 
-*Dov goes over how to understand complexity of an algorithm by looking at its pseudocode*
-
 If statements are O(1) on all machines
 
 i *+= i --> O(log2(n))
 
-Super important apparently:
 1 + 2 + 3 + ... + n-1 + n   --> n(n+1)/2 --> O(n^2)
-
-OPTIONAL HOMEWORK:
-Develope an algorithm combinations formula (n!/(n-r)!r!) to operate in O(1) time. Use a 2 dimensional array, and possibly pascal's triangle to help you
-
-Dov explains why the x in logx(n) doesn't matter while the x in x^n does.
-
-We're looking for O(1), everytime we can get it.

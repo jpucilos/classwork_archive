@@ -1,4 +1,3 @@
-
 CPE 593 Session 3: sorting
 
 *Sorting is a higher complexity than shuffling. It's easier to disorder than to order (entropy)
@@ -12,8 +11,6 @@ Heapsort much faster than Quicksort in worst case, not in best case
 Mergesort for big memory
 
 
-You can use swap(x,y) on a test
-
 Interview question
 	Can you swap variables without a third variable?
 		you can
@@ -21,7 +18,7 @@ Interview question
 		x[j+1] = x[j] - x[j+1]
 		x[j] = x[j] - x[j+1]
 		Or
-		XOR and stuff
+		XOR
 	
 Insertion Sort - the first of the useful sorts
 	the fastest up to 200
@@ -51,23 +48,17 @@ Quicksort
 		}
 	}
 	
-	
-	
-Knuth Optimized  Quicksort - 30% faster alledgedly
+Knuth Optimized  Quicksort - 30% faster
 	mix in a little insertion sort
 	
+Heapsort
+	half the speed of quicksort, but more reliable, same complexity
 	
-Heapsort - half the speed of quicksort, but more reliable, same complexity
-	
-Heap - Kinda like binary tree, where parent is greater than both children
-		nlogn complexity
-		always runs the same
+Heap 
+	Kinda like binary tree, where parent is greater than both children
+	nlogn complexity
+	always runs the same
 		
 Mergesort
-	Honestly not that great
+	not that great
 	
-	
-
-Radix Sort (not required)
-	sorts faster than nlogn for certain conditions
-	devise a number of bins
