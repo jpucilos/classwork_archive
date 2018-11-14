@@ -1,0 +1,50 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 11;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x20e49f0 .scope module, "testmux" "testmux" 2 3;
+ .timescale -9 -11;
+v0x20f3bd0_0 .var "a", 0 0;
+v0x20f3c70_0 .var "b", 0 0;
+v0x20f3d20_0 .net "out", 0 0, L_0x20f4140; 1 drivers
+v0x20f3dd0_0 .var "s", 0 0;
+S_0x20e4ae0 .scope module, "myLovelyLadyMux" "mux2to1" 2 9, 3 1, S_0x20e49f0;
+ .timescale -9 -11;
+L_0x20f3eb0 .functor NOT 1, v0x20f3bd0_0, C4<0>, C4<0>, C4<0>;
+L_0x20f3f90 .functor AND 1, L_0x20f3eb0, v0x20f3c70_0, C4<1>, C4<1>;
+L_0x20f4090 .functor AND 1, v0x20f3bd0_0, v0x20f3dd0_0, C4<1>, C4<1>;
+L_0x20f4140 .functor OR 1, L_0x20f3f90, L_0x20f4090, C4<0>, C4<0>;
+L_0x20f4290 .functor NOT 1, L_0x20f4140, C4<0>, C4<0>, C4<0>;
+v0x20ae690_0 .net "and1_o", 0 0, L_0x20f3f90; 1 drivers
+v0x20f36d0_0 .net "and2_o", 0 0, L_0x20f4090; 1 drivers
+v0x20f3770_0 .net "in0", 0 0, v0x20f3c70_0; 1 drivers
+v0x20f3810_0 .net "in1", 0 0, v0x20f3dd0_0; 1 drivers
+v0x20f38c0_0 .alias "out", 0 0, v0x20f3d20_0;
+v0x20f3960_0 .net "out_bar", 0 0, L_0x20f4290; 1 drivers
+v0x20f3a40_0 .net "s", 0 0, v0x20f3bd0_0; 1 drivers
+v0x20f3ae0_0 .net "s_bar", 0 0, L_0x20f3eb0; 1 drivers
+    .scope S_0x20e49f0;
+T_0 ;
+    %vpi_call 2 14 "$dumpfile", "testmux.vcd";
+    %vpi_call 2 15 "$dumpvars", 1'sb0, S_0x20e49f0;
+    %set/v v0x20f3bd0_0, 0, 1;
+    %set/v v0x20f3c70_0, 1, 1;
+    %set/v v0x20f3dd0_0, 0, 1;
+    %delay 100, 0;
+    %set/v v0x20f3bd0_0, 1, 1;
+    %delay 100, 0;
+    %set/v v0x20f3dd0_0, 1, 1;
+    %set/v v0x20f3c70_0, 0, 1;
+    %delay 300, 0;
+    %set/v v0x20f3bd0_0, 0, 1;
+    %vpi_call 2 26 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testmux.v";
+    "mux2to1.v";

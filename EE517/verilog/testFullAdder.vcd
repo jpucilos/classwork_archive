@@ -1,0 +1,52 @@
+$date
+	Mon Nov  6 19:11:56 2017
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	10ps
+$end
+$scope module testFullAdder $end
+$var wire 1 ! carry $end
+$var wire 1 " sum $end
+$var reg 1 # a $end
+$var reg 1 $ b $end
+$var reg 1 % cin $end
+$scope module myFullAdder $end
+$var wire 1 & a $end
+$var wire 1 ' b $end
+$var wire 1 ! carry $end
+$var wire 1 ( cin $end
+$var wire 1 ) or1 $end
+$var wire 1 * or2 $end
+$var wire 1 " sum $end
+$var wire 1 + xor1 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1+
+0*
+0)
+0(
+1'
+0&
+0%
+1$
+0#
+1"
+0!
+$end
+#100
+0+
+1%
+1(
+0$
+0'
+#200
+0"
+0%
+0(
+#500

@@ -1,0 +1,53 @@
+#! /usr/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision - 11;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x1d99e30 .scope module, "testFullAdder" "testFullAdder" 2 3;
+ .timescale -9 -11;
+v0x1da9640_0 .var "a", 0 0;
+v0x1da96e0_0 .var "b", 0 0;
+v0x1da9790_0 .net "carry", 0 0, L_0x1da9d10; 1 drivers
+v0x1da9840_0 .var "cin", 0 0;
+v0x1da9920_0 .net "sum", 0 0, L_0x1da9b00; 1 drivers
+S_0x1d99f20 .scope module, "myFullAdder" "fullAdder" 2 6, 3 1, S_0x1d99e30;
+ .timescale -9 -11;
+L_0x1da99d0 .functor XOR 1, v0x1da9640_0, v0x1da96e0_0, C4<0>, C4<0>;
+L_0x1da9b00 .functor XOR 1, L_0x1da99d0, v0x1da9840_0, C4<0>, C4<0>;
+L_0x1da9c50 .functor AND 1, v0x1da9840_0, L_0x1da99d0, C4<1>, C4<1>;
+L_0x1da9cb0 .functor AND 1, v0x1da9640_0, v0x1da96e0_0, C4<1>, C4<1>;
+L_0x1da9d10 .functor OR 1, L_0x1da9c50, L_0x1da9cb0, C4<0>, C4<0>;
+v0x1d63690_0 .net "a", 0 0, v0x1da9640_0; 1 drivers
+v0x1da9140_0 .net "b", 0 0, v0x1da96e0_0; 1 drivers
+v0x1da91e0_0 .alias "carry", 0 0, v0x1da9790_0;
+v0x1da9280_0 .net "cin", 0 0, v0x1da9840_0; 1 drivers
+v0x1da9330_0 .net "or1", 0 0, L_0x1da9c50; 1 drivers
+v0x1da93d0_0 .net "or2", 0 0, L_0x1da9cb0; 1 drivers
+v0x1da94b0_0 .alias "sum", 0 0, v0x1da9920_0;
+v0x1da9550_0 .net "xor1", 0 0, L_0x1da99d0; 1 drivers
+    .scope S_0x1d99e30;
+T_0 ;
+    %vpi_call 2 10 "$dumpfile", "testFullAdder.vcd";
+    %vpi_call 2 11 "$dumpvars", 1'sb0, S_0x1d99e30;
+    %set/v v0x1da9840_0, 0, 1;
+    %set/v v0x1da9640_0, 0, 1;
+    %set/v v0x1da96e0_0, 1, 1;
+    %delay 100, 0;
+    %set/v v0x1da9640_0, 0, 1;
+    %set/v v0x1da96e0_0, 0, 1;
+    %set/v v0x1da9840_0, 1, 1;
+    %delay 100, 0;
+    %set/v v0x1da9840_0, 0, 1;
+    %set/v v0x1da96e0_0, 0, 1;
+    %delay 300, 0;
+    %set/v v0x1da9640_0, 0, 1;
+    %vpi_call 2 24 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "testFullAdder.v";
+    "fullAdder.v";

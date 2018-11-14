@@ -1,0 +1,62 @@
+$date
+	Mon Oct 23 19:31:45 2017
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	10ps
+$end
+$scope module testmux $end
+$var wire 1 ! out $end
+$var reg 1 " a $end
+$var reg 1 # b $end
+$var reg 1 $ s $end
+$scope module myLovelyLadyMux $end
+$var wire 1 % and1_o $end
+$var wire 1 & and2_o $end
+$var wire 1 ' in0 $end
+$var wire 1 ( in1 $end
+$var wire 1 ! out $end
+$var wire 1 ) out_bar $end
+$var wire 1 * s $end
+$var wire 1 + s_bar $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+1+
+0*
+0)
+0(
+1'
+0&
+1%
+0$
+1#
+0"
+1!
+$end
+#100
+1)
+0!
+0%
+0+
+1"
+1*
+#200
+0)
+1!
+1&
+0#
+0'
+1$
+1(
+#500
+1)
+0!
+1+
+0&
+0"
+0*
